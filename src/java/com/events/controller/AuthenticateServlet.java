@@ -1,12 +1,16 @@
 package com.events.controller;
 
+import com.events.beans.UsersDaoLocal;
+import com.events.model.User;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 @WebServlet(name = "AuthenticateServlet", urlPatterns = {"/authenticate"})
@@ -19,29 +23,15 @@ public class AuthenticateServlet extends HttpServlet {
 //        PrintWriter out = response.getWriter();
     }
     
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
     }
     
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    @Inject UsersDaoLocal usersDaoLocal;
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -50,6 +40,16 @@ public class AuthenticateServlet extends HttpServlet {
         String userName = request.getParameter("uname");
         String password = request.getParameter("password");
         
+        User user = usersDaoLocal.getByUserAndPassword(userName, password);
+        
+        if (user != null) {
+            request.getSession().setAttribute("user", user);
+            response.sendRedirect("events");
+
+        }else {
+            request.setAttribute("errorMessage", "Uknown user, please try again");
+            request.getRequestDispatcher("login").forward(request, response);
+        }
         
     }
     

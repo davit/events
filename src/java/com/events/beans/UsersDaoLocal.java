@@ -12,4 +12,5 @@ public interface UsersDaoLocal {
     void delete(int id);    
     User get(int id);
     List<User> getAll();
+    User getByUserAndPassword(String userName, String password);    
 }

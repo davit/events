@@ -4,6 +4,7 @@ import com.events.model.User;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 
@@ -37,5 +38,17 @@ public class UsersDao implements UsersDaoLocal {
     @Override
     public List<User> getAll() {
         return em.createNamedQuery("User.findAll").getResultList();
+    }
+    
+    @Override
+    public User getByUserAndPassword(String userName, String password) {
+        try { User user = (User) em.createNamedQuery("User.findByUserAndPassword")
+                .setParameter("userName", userName)
+                .setParameter("password", password)
+                .getSingleResult();
+        return user;
+        } catch(NoResultException e) {
+            return null;
+        }
     }
 }
