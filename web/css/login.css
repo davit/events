@@ -1,0 +1,22 @@
+.links {
+    width: 20em;
+    font-weight: bold;
+    padding: 2em;
+    margin-left: 7em;
+}
+
+#login-form {
+    margin-top: 2em;
+}
+
+.authentication {
+    margin-top: 2em;
+}
+
+#submitButton {    
+    margin-right: 1em;   
+}
+
+.error-message {
+    color: #D8000C;
+}

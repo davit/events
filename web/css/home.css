@@ -1,0 +1,23 @@
+#pageLinks {
+    margin-top: 5em;
+}
+
+#pageLinks a {
+    width: 20em;
+    font-weight: bold;
+    padding: 2em;
+}
+
+.links.calendar {
+    margin-top: 1em;    
+}
+
+
+/*#formid {
+    margin-top: 6em;
+}
+
+
+#status_message span {
+    color: #D8000C;
+}*/
