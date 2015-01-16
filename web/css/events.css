@@ -16,7 +16,11 @@
     margin-left: 4em;
 }
 
-#add-user {
+#add-event {
+    width: 10em;
+}
+
+event {
     width: 10em;
 }
 

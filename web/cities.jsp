@@ -21,7 +21,7 @@
                     </div>
                     <c:choose>
                         <c:when test="${cities == 'empty'}">
-                            <p class="no-city-found">No cities were found :(</p>                            
+                            <p class="city">No cities were found :(</p>                            
                             <div class="table-div">
                                 <div class="new-row">
                                     <button id="add-city" class="btn btn-success">Add new city</button>

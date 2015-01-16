@@ -1,7 +1,11 @@
 package com.events.controller;
 
+import com.events.beans.EventDaoLocal;
+import com.events.model.Event;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,10 +16,14 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "EventsServlet", urlPatterns = {"/events"})
 public class EventsServlet extends HttpServlet {
 
+    @Inject EventDaoLocal eventDaoLocal;
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+        
+        List<Event> events = eventDaoLocal.getAll();
+        request.setAttribute("events", events);
         
         request.getRequestDispatcher("events.jsp").forward(request, response);
     }

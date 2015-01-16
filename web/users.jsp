@@ -21,7 +21,7 @@
                     </div>
                     <c:choose>
                         <c:when test="${users == 'empty'}">
-                            <p class="city">No users were found :(</p>                            
+                            <p class="event">No users were found :(</p>                            
                             <div class="table-div">
                                 <div class="new-row">
                                     <button id="add-user" class="btn btn-success">Add new users</button>
