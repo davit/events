@@ -14,6 +14,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-lg-push-4">    
+                    <div class="links home">
+                        <a class="btn btn-default" href="${pageContext.request.contextPath}/home" role="button">
+                            <img src="${pageContext.request.contextPath}/images/home-icon.png">
+                        </a>
+                    </div>
                     <c:choose>
                         <c:when test="${users == 'empty'}">
                             <p class="no-user-found">No users were found :(</p>

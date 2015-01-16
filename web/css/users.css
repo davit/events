@@ -6,6 +6,11 @@
     background-color: #FFBABA;    
 }
 
+.links.home {
+    margin-left: 5.5em;
+    margin-top: 3em;
+}
+
 .new-row {
     margin-left: 4em;
 }
@@ -15,7 +20,7 @@
 }
 
 .table-div {
-    margin-top: 5em;
+    margin-top: 2em;
     width: 10em;
 }
 
