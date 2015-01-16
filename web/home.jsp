@@ -20,6 +20,11 @@
                                 <img src="images/login.png">
                             </a>
                         </div>
+                        <div class="links users">
+                            <a class="btn btn-default" href="${pageContext.request.contextPath}/users" role="button">
+                                <img src="images/users-icon.png">
+                            </a>
+                        </div>
                         <div class="links calendar">
                             <a class="btn btn-default" href="${pageContext.request.contextPath}/events" role="button">
                                 <img src="images/table-icon.png">
