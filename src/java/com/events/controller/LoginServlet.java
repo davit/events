@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
         
         if (session != null) {
             if (session.getAttribute("user") != null) {
-                response.sendRedirect("events");
+                response.sendRedirect("users");
             }else {
                 request.getRequestDispatcher("login.jsp").forward(request, response);
             }

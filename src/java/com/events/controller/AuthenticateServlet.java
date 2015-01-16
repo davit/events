@@ -42,9 +42,8 @@ public class AuthenticateServlet extends HttpServlet {
         User user = usersDaoLocal.getByUserAndPassword(userName, password);
         
         if (user != null) {
-            request.getSession().setAttribute("user", user);
-            request.getSession().setMaxInactiveInterval(3600); 
-            response.sendRedirect("events");
+            request.getSession().setAttribute("user", user);             
+            response.sendRedirect("users");
 
         }else {
             request.setAttribute("errorMessage", "Uknown user, please try again");
