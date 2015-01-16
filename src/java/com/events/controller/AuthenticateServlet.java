@@ -44,6 +44,7 @@ public class AuthenticateServlet extends HttpServlet {
         
         if (user != null) {
             request.getSession().setAttribute("user", user);
+            request.getSession().setMaxInactiveInterval(60); 
             response.sendRedirect("events");
 
         }else {

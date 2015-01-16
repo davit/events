@@ -15,23 +15,23 @@
             <div class="row">
                 <div class="col-lg-4 col-lg-push-4">                    
                     <div id="pageLinks" class="links">                    
-                        <div class="links home-page">
-                            <a class="btn btn-default" href="${pageContext.request.contextPath}/login" role="button">
+                        <div class="links home-page"> 
+                            <a class="btn btn-default" title="Login" href="${pageContext.request.contextPath}/login" role="button">
                                 <img src="images/login.png">
                             </a>
                         </div>
                         <div class="links users">
-                            <a class="btn btn-default" href="${pageContext.request.contextPath}/users" role="button">
+                            <a class="btn btn-default" title="Users" href="${pageContext.request.contextPath}/users" role="button">
                                 <img src="images/users-icon.png">
                             </a>
                         </div>
                         <div class="links calendar">
-                            <a class="btn btn-default" href="${pageContext.request.contextPath}/events" role="button">
+                            <a class="btn btn-default" title="Events" href="${pageContext.request.contextPath}/events" role="button">
                                 <img src="images/table-icon.png">
                             </a>
                         </div>
                         <div class="links cities">
-                            <a class="btn btn-default" href="${pageContext.request.contextPath}/cities" role="button">
+                            <a class="btn btn-default" title="Cities" href="${pageContext.request.contextPath}/cities" role="button">
                                 <img src="images/city-icon.png">
                             </a>
                         </div>

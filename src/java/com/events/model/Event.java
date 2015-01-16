@@ -51,6 +51,9 @@ public class Event implements Serializable {
     @JoinColumn(name = "cityId", referencedColumnName = "id")
     @ManyToOne
     private City cityId;
+    @JoinColumn(name = "userId", referencedColumnName = "id")
+    @ManyToOne
+    private User userId;
 
     public Event() {
     }
@@ -105,6 +108,14 @@ public class Event implements Serializable {
 
     public void setCityId(City cityId) {
         this.cityId = cityId;
+    }
+
+    public User getUserId() {
+        return userId;
+    }
+
+    public void setUserId(User userId) {
+        this.userId = userId;
     }
 
     @Override

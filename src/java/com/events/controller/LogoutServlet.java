@@ -1,38 +1,31 @@
 package com.events.controller;
 
-import com.events.beans.CityDaoLocal;
-import com.events.beans.UsersDaoLocal;
-import com.events.model.City;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
-import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
-@WebServlet(name = "CityServlet", urlPatterns = {"/cities"})
-public class CityServlet extends HttpServlet {
-    
-    @Inject CityDaoLocal cityDaoLocal;
-    
+@WebServlet(name = "LogoutServlet", urlPatterns = {"/logout"})
+public class LogoutServlet extends HttpServlet {
+
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
         
-        List<City> cities = cityDaoLocal.getAll();
-        if (cities.isEmpty()) {
-            request.setAttribute("cities", "empty");
-        }else {
-            request.setAttribute("cities", cities);
+        HttpSession session = request.getSession();
+        if (session != null) {
+            session.removeAttribute("user");
+            response.sendRedirect("home");
         }
-        
-        request.getRequestDispatcher("cities.jsp").forward(request, response);
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -47,7 +40,7 @@ public class CityServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-    
+
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -61,7 +54,7 @@ public class CityServlet extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-    
+
     /**
      * Returns a short description of the servlet.
      *
@@ -71,5 +64,5 @@ public class CityServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-    
+
 }
