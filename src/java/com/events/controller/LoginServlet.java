@@ -15,17 +15,16 @@ public class LoginServlet extends HttpServlet {
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");        
+        response.setContentType("text/html;charset=UTF-8");
         
         HttpSession session = request.getSession(false);
         
-        if (session != null) {
-            if (session.getAttribute("user") != null) {
-                response.sendRedirect("users");
-            }else {
-                request.getRequestDispatcher("login.jsp").forward(request, response);
-            }
+        if (session.getAttribute("user") != null) {
+            response.sendRedirect("users");
+        }else {
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
+        
     }
     
     
