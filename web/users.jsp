@@ -21,7 +21,21 @@
                     </div>
                     <c:choose>
                         <c:when test="${users == 'empty'}">
-                            <p class="no-user-found">No users were found :(</p>
+                            <p class="no-user-found">No users were found :(</p>                            
+                            <div class="table-div">
+                                <div class="new-row">
+                                    <button id="add-user" class="btn btn-success">Add new users</button>
+                                </div>
+                                <table class="table">
+                                    <tr>
+                                        <th>Users</th>
+                                    </tr>   
+                                    
+                                    <tr data-user-status="new" contenteditable="true">
+                                        <td></td>
+                                    </tr>                                                                            
+                                </table>
+                            </div>                           
                         </c:when>                        
                         <c:otherwise>
                             <div class="table-div">

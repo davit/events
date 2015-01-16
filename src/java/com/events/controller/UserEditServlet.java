@@ -36,6 +36,7 @@ public class UserEditServlet extends HttpServlet {
             if (jsonUser.getString("status").equals("new")) {
                 User user = new User();
                 user.setUserName(jsonUser.getString("user"));
+                user.setPassword(jsonUser.getString("password"));
                 usersDaoLocal.create(user);
             }else if (jsonUser.getString("status").equals("old")) {                   
                 User user = usersDaoLocal.get(new Integer(jsonUser.getInt("id")));                
